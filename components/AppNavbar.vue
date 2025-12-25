@@ -19,16 +19,16 @@ const links = [
     <div class="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6">
 
       <!-- Logo -->
-      <div class="flex items-center gap-2">
+      <a href="#" class="flex items-center gap-2">
         <img
           src="/images/logo.png"
           alt="TumWebSME"
-          class="h-9"
+          class="h-9 w-auto"
         />
         <span class="text-base font-semibold text-gray-900">
           TumWebSME
         </span>
-      </div>
+      </a>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-8">
@@ -36,7 +36,7 @@ const links = [
           v-for="link in links"
           :key="link.label"
           :href="link.href"
-          class="text-sm font-medium text-gray-600 hover:text-gray-900"
+          class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
         >
           {{ link.label }}
         </a>
@@ -53,7 +53,7 @@ const links = [
 
         <UButton
           variant="soft"
-          color="gray"
+          color="secondary"
           class="rounded-full px-4 text-sm font-medium"
           trailing-icon="i-heroicons-chevron-down"
         >
@@ -65,22 +65,27 @@ const links = [
       <UButton
         icon="i-heroicons-bars-3"
         variant="ghost"
-        color="gray"
+        color="secondary"
         class="md:hidden"
+        aria-label="Open menu"
         @click="isOpen = true"
       />
     </div>
   </header>
 
   <!-- MOBILE SLIDEOVER -->
-  <USlideover v-model="isOpen">
+  <USlideover v-if="isOpen" v-model="isOpen">
     <div class="flex h-full flex-col p-6">
 
       <!-- Mobile Header -->
       <div class="mb-8 flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <img src="/images/logo.png" class="h-8" />
-          <span class="text-base font-semibold">
+          <img
+            src="/images/logo.png"
+            alt="TumWebSME"
+            class="h-8 w-auto"
+          />
+          <span class="text-base font-semibold text-gray-900">
             TumWebSME
           </span>
         </div>
@@ -88,6 +93,7 @@ const links = [
         <UButton
           icon="i-heroicons-x-mark"
           variant="ghost"
+          aria-label="Close menu"
           @click="isOpen = false"
         />
       </div>
@@ -98,7 +104,7 @@ const links = [
           v-for="link in links"
           :key="link.label"
           :href="link.href"
-          class="text-base font-medium text-gray-700"
+          class="text-base font-medium text-gray-700 hover:text-gray-900 transition-colors"
           @click="isOpen = false"
         >
           {{ link.label }}
@@ -116,7 +122,7 @@ const links = [
 
         <UButton
           variant="soft"
-          color="gray"
+          color="secondary"
           class="w-full rounded-full"
           trailing-icon="i-heroicons-chevron-down"
         >

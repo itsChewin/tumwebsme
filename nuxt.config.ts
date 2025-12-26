@@ -16,7 +16,12 @@ export default defineNuxtConfig({
         name: 'DM Sans',
         provider: 'google',
         weights: [400, 500, 600, 700]
-      }
-    ]
-  }
+      },
+      {
+        name: 'Asap Condensed',
+        provider: 'google',
+        weights: [400, 500, 600, 700],
+      },
+    ],
+  },
 });

@@ -40,7 +40,7 @@ const links = [
       <!-- Logo -->
       <a href="#" class="flex items-center gap-2">
         <img src="/images/logo.png" alt="TumWebSME" class="h-11 w-auto" />
-        <span class="text-xl font-semibold text-[#424242]">
+        <span class="font-logo text-xl font-semibold text-[#424242]">
           TumWebSME
         </span>
       </a>

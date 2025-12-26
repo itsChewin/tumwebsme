@@ -13,7 +13,7 @@
             alt="TumWebSME"
             class="mb-6 h-40 w-auto"
           />
-          <h2 class="text-5xl font-bold">TumWebSME</h2>
+          <h2 class="font-logo text-5xl font-bold">TumWebSME</h2>
         </div>
 
        

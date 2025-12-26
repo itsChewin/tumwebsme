@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-body {
-  font-family: 'DM Sans', sans-serif;
+html {
+  font-family: 'DM Sans', system-ui, sans-serif;
 }

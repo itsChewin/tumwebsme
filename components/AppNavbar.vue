@@ -18,13 +18,14 @@ const navbarClass = computed(() =>
 )
 
 const links = [
-  { label: 'หน้าแรก', href: '#' },
-  { label: 'แพ็กเกจและบริการ', href: '#services' },
-  { label: 'ผลงานและรีวิว', href: '#work' },
-  { label: 'เกี่ยวกับเรา', href: '#about' },
-  { label: 'บทความ', href: '#blog' },
-  { label: 'ติดตามเรา', href: '#contact' }
-]
+  { label: 'หน้าแรก', to: '/' },
+  { label: 'แพ็กเกจและบริการ', to: '/services' },
+  { label: 'ผลงานและรีวิว', to: '/work' },
+  { label: 'เกี่ยวกับเรา', to: '/about' },
+  { label: 'บทความ', to: '/blog' },
+  { label: 'ติดต่อเรา', to: '/contact' }
+] as const
+
 </script>
 
 <template>
@@ -49,14 +50,15 @@ const links = [
       <div class="flex-1 flex items-center justify-end gap-10">
         <!-- Desktop Navigation -->
         <nav class="flex items-center gap-10">
-          <a
+          <NuxtLink
             v-for="link in links"
             :key="link.label"
-            :href="link.href"
+            :to="link.to"
             class="text-sm font-medium text-[#314158] hover:text-[#1537AA] transition-colors"
+            active-class="text-[#1537AA] font-semibold"
           >
             {{ link.label }}
-          </a>
+          </NuxtLink>
         </nav>
 
         <!-- Desktop Actions -->

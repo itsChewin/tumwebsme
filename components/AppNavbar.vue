@@ -41,8 +41,8 @@ const links = [
 
       <!-- Logo -->
       <a href="#" class="flex items-center gap-2">
-        <img src="/images/logo.png" alt="TumWebSME" class="h-10 w-auto" />
-        <span class="text-base font-semibold text-[#314158]">
+        <img src="/images/logo.png" alt="TumWebSME" class="h-11 w-auto" />
+        <span class="text-xl font-semibold text-[#424242]">
           TumWebSME
         </span>
       </a>
@@ -73,7 +73,7 @@ const links = [
         <!-- Language -->
         <UButton
           variant="soft"
-          class="rounded-full px-5 py-3 text-sm font-medium text-[#1537AA]"
+          class="rounded-full bg-[#E8EDFC] px-5 py-3 text-sm font-medium text-[#1537AA] hover:bg-[#d3e0fa]"
           trailing-icon="i-heroicons-chevron-down"
         >
           TH

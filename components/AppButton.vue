@@ -1,7 +1,7 @@
 <template>
   <button
     :class="[
-      'inline-flex items-center gap-2 rounded-full font-medium transition',
+      'inline-flex items-center justify-center gap-2 rounded-full font-medium transition',
       sizeClass,
       colorClass
     ]"

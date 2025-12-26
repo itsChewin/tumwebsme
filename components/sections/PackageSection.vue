@@ -1,65 +1,93 @@
-<template>
-  <section class="px-6 py-24 lg:px-16">
-    <div class="mx-auto max-w-6xl">
-      
-      <!-- SECTION HEADER -->
-      <div class="mb-14 text-center">
-        <h2 class="mb-4 text-3xl font-bold text-[#1E1F22]">
-          แพ็กเกจและบริการ
-        </h2>
-        <p class="mx-auto max-w-2xl text-gray-600">
-          เลือกแพ็กเกจที่เหมาะกับธุรกิจของคุณ
-          เราพร้อมช่วยให้คุณเติบโตบนโลกออนไลน์
-        </p>
-      </div>
+<script setup lang="ts">
+import PackageCard from '~/components/cards/PackageCard.vue'
 
-      <!-- PACKAGE GRID -->
-      <div class="grid gap-8 md:grid-cols-3">
+const packages: { id: string; title: string; oldPrice: number; price: number; description: string; theme: 'starter' | 'standard' | 'ecommerce' | 'system'; features: [string, string][]; hot?: boolean }[] = [
+  {
+    id: 'starter',
+    title: 'Starter',
+    oldPrice: 100000,
+    price: 89000,
+    description: 'แพ็กเกจพื้นฐาน เหมาะสำหรับธุรกิจขนาดเล็ก',
+    theme: 'starter',
+    features: [
+      ['เว็บไซต์', '2 หน้า'],
+      ['แก้ไขดีไซน์', '2 รอบ'],
+      ['ภาษา', '1 ภาษา'],
+      ['ฟรี โดเมน', '12 เดือน'],
+      ['ฟรี Premium Hosting', '12 เดือน'],
+      ['ฟรี ดูแลหลังการขาย', '12 เดือน'],
+      ['ฟรี บทความ SEO', '2 บท'],
+      ['ฟรี รายงานการเข้าชมเว็บ', '12 เดือน'],
+    ],
+  },
+  {
+    id: 'standard',
+    title: 'Standard',
+    oldPrice: 100000,
+    price: 109000,
+    description: 'แพ็กเกจมาตรฐาน เหมาะสำหรับธุรกิจขนาดกลาง',
+    theme: 'standard',
+    hot: true,
+    features: [
+      ['เว็บไซต์', '6 หน้า'],
+      ['แก้ไขดีไซน์', '3 รอบ'],
+      ['ภาษา', '2 ภาษา'],
+      ['ฟรี โดเมน', '12 เดือน'],
+      ['ฟรี Premium Hosting', '12 เดือน'],
+      ['ฟรี ดูแลหลังการขาย', '12 เดือน'],
+      ['ฟรี บทความ SEO', '2 เดือน'],
+      ['ฟรี รายงานการเข้าชมเว็บ', '12 เดือน'],
+    ],
+  },
+  {
+    id: 'ecommerce',
+    title: 'E-commerce',
+    oldPrice: 100000,
+    price: 199000,
+    description: 'แพ็กเกจร้านค้าออนไลน์ เหมาะสำหรับธุรกิจที่ต้องการขายสินค้าออนไลน์',
+    theme: 'ecommerce',
+    features: [
+      ['เว็บไซต์', 'ไม่จำกัด'],
+      ['แก้ไขดีไซน์', '3 รอบ'],
+      ['ภาษา', '2 ภาษา'],
+      ['ฟรี โดเมน', '12 เดือน'],
+      ['ฟรี Premium Hosting', '12 เดือน'],
+      ['ฟรี ดูแลหลังการขาย', '12 เดือน'],
+      ['ฟรี บทความ SEO', '2 บท'],
+      ['ฟรี รายงานการเข้าชมเว็บ', '12 เดือน'],
+    ],
+  },
+  {
+    id: 'system',
+    title: 'System',
+    oldPrice: 100000,
+    price: 249000,
+    description: 'แพ็กเกจระบบเฉพาะทาง เหมาะสำหรับธุรกิจที่ต้องการระบบตามความต้องการ',
+    theme: 'system',
+    features: [
+      ['เว็บไซต์', 'ไม่จำกัด'],
+      ['แก้ไขดีไซน์', '3 รอบ'],
+      ['ภาษา', '2 ภาษา'],
+      ['ฟรี โดเมน', '12 เดือน'],
+      ['ฟรี Premium Hosting', '12 เดือน'],
+      ['ฟรี ดูแลหลังการขาย', '12 เดือน'],
+      ['ฟรี บทความ SEO', 'ไม่ใช้ในระบบ'],
+      ['ฟรี รายงานการเข้าชมเว็บ', 'ไม่ใช้ในระบบ'],
+    ],
+  },
+]
+</script>
+
+<template>
+  <section class="bg-[#FFFFFF] py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         <PackageCard
           v-for="pkg in packages"
-          :key="pkg.title"
-          :title="pkg.title"
-          :subtitle="pkg.subtitle"
-          :features="pkg.features"
+          :key="pkg.id"
+          v-bind="pkg"
         />
       </div>
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-import PackageCard from '@/components/cards/PackageCard.vue'
-
-const packages = [
-  {
-    title: 'Starter',
-    subtitle: 'เหมาะสำหรับธุรกิจเริ่มต้น',
-    features: [
-      'ออกแบบเว็บไซต์ 1 หน้า',
-      'รองรับมือถือ',
-      'โดเมน + โฮสติ้ง 1 ปี',
-      'ดูแลหลังบ้านเบื้องต้น'
-    ]
-  },
-  {
-    title: 'Business',
-    subtitle: 'เหมาะสำหรับธุรกิจ SME',
-    features: [
-      'ออกแบบเว็บไซต์หลายหน้า',
-      'รองรับ SEO',
-      'เชื่อมต่อ Line / Facebook',
-      'ดูแลและอัปเดตเว็บไซต์'
-    ]
-  },
-  {
-    title: 'Enterprise',
-    subtitle: 'สำหรับธุรกิจที่ต้องการระบบเฉพาะ',
-    features: [
-      'ออกแบบ UI/UX ตามต้องการ',
-      'พัฒนาระบบเฉพาะ',
-      'รองรับผู้ใช้งานจำนวนมาก',
-      'ทีมซัพพอร์ตเฉพาะ'
-    ]
-  }
-]
-</script>
